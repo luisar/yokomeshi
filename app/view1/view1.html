@@ -4,4 +4,14 @@
     <input type="text" id="new-word" ng-model="newWords.word" />
     <button id="add-new-word" ng-click="addNewWord()">Add Word</button>
   </div>
+
+  <div id="list-of-words" ng-controller="inlineEditorController" ng-click="hideTooltip()">
+    <!-- This is the tooltip. It is shown only when the showtooltip variable is truthful -->
+  	<div id="tooltip" class="tooltip" ng-click="$event.stopPropagation()" ng-show="showtooltip">
+  		<input type="text" ng-model="value" />
+  	</div>
+    <div ng-repeat="w in words">
+      <span class="tag" ng-click="toggleTooltip($event,w.content)">{{w.content}}</span>
+    </div>
+  </div>
 </div>

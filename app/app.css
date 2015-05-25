@@ -33,7 +33,8 @@
   border:1px solid black;
   with:100%;
   height:auto;
-  margin-top: 30px;
+  position: relative;
+  margin-top: 370px;
 }
 
 #list-of-words span{
@@ -69,7 +70,7 @@
 	position: absolute;
 	left:50%;
 	margin-left:-150px;
-	top: 80px;
+	top: 0px;
 }
 
 .tooltip:after{
