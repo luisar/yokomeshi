@@ -11,8 +11,7 @@ var app = angular.module('yokoApp', [
 .factory('wordsFactory', function($http){
   var factory = {};
   var words = [
-    {content:"hi", definition:"ooo"},
-    {content:"h3", definition:"ooo222"}
+    {content:"hi", definition:"ooo"}
   ];
   factory.getWords = function(){
     return words;
@@ -24,24 +23,23 @@ var app = angular.module('yokoApp', [
   return factory;
 })
 .controller('yokoAppCtrl', function($scope, $firebaseObject, $firebaseAuth, wordsFactory){
-  var ref = new Firebase("https://resplendent-fire-4284.firebaseio.com/data");
-
+  var ref = new Firebase("https://resplendent-fire-4284.firebaseio.com/words/");
   // download the data into a local object
   var syncObject = $firebaseObject(ref);
-  // synchronize the object with a three-way data binding
-  // click on `index.html` above to see it used in the DOM!
-  syncObject.$bindTo($scope, "data");
-
-
   // create an instance of the authentication service
   var auth = $firebaseAuth(ref);
 
+  // synchronize the object with a three-way data binding
+  syncObject.$bindTo($scope, "data");
+
   // login with Facebook
-  auth.$authWithOAuthPopup("facebook").then(function(authData) {
-    console.log("Logged in as:", authData.uid);
-  }).catch(function(error) {
-    console.log("Authentication failed:", error);
-  });
+  // auth.$authWithOAuthPopup("facebook").then(function(authData) {
+  //   console.log("Logged in as:", authData.uid);
+  // }).catch(function(error) {
+  //   console.log("Authentication failed:", error);
+  // });
+  //https://www.firebase.com/docs/web/guide/login/facebook.html
+  //http://tutorialzine.com/2013/08/learn-angularjs-5-examples/
 
   $scope.words = [];
 
@@ -53,8 +51,7 @@ var app = angular.module('yokoApp', [
 
   $scope.addNewWord = function(){
     $scope.words.push({
-      content: $scope.newWords.word,
-      definition: "blahblah"
+      content: $scope.newWords.word
     });
   };
 
