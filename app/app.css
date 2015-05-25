@@ -114,3 +114,48 @@ span.tag:before{
 	font-weight:normal;
 	vertical-align: text-bottom;
 }
+
+#word-input{
+  width:250px;
+  height:250px;
+  position: absolute;
+  left:0;right:0;top:0;bottom:0;
+  margin:auto;
+  border:solid 2px #2fa1bd;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 5px 9px 21px #332e33;
+  -webkit-box-shadow: 5px 9px 21px #332e33;
+  box-shadow: 5px 9px 21px #332e33;
+  background: #2fa1bd;
+}
+
+#new-word{
+  border-style:solid;
+  padding:6px;
+  font-size:17px;
+  border-width:2px;
+  border-radius:10px;
+  border-color:#2da3bd;
+  font-family:sans-serif;
+  font-weight:bold;
+  margin:5px 15px 5px 15px;
+}
+
+#new-word:focus{
+  outline:none;
+}
+
+#add-new-word{
+  border-style: solid;
+  padding: 5px;
+  font-size:18px;
+  font-family:sans-serif;
+  font-weight:bold;
+  border-width:2px;
+  border-radius:10px;
+  background:#000;
+  color:#FFF;
+  margin:0 60px 0 60px;
+}

@@ -1,1 +1,7 @@
-<p>This is the partial for view 1.</p>
+<div ng-controller="yokoAppCtrl">
+  <div id="word-input">
+    <p>This is the partial for view 1.</p>
+    <input type="text" id="new-word" ng-model="newWords.word" />
+    <button id="add-new-word" ng-click="addNewWord()">Add Word</button>
+  </div>
+</div>

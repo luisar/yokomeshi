@@ -8,17 +8,20 @@ var app = angular.module('yokoApp', [
   'yokoApp.version',
   'firebase'
 ])
-.factory('wordsFactory', function($http){
+.factory('wordsFactory', function($http, $firebaseObject, $firebaseAuth){
   var factory = {};
-  var words = [
-    {content:"hi", definition:"ooo"}
-  ];
+  var ref = new Firebase("https://resplendent-fire-4284.firebaseio.com/words/");
+  // download the data into a local object
+  var syncObject = $firebaseObject(ref);
+  var words = syncObject;
+  // create an instance of the authentication service
+  var auth = $firebaseAuth(ref);
+
   factory.getWords = function(){
     return words;
-    //ajax call here
   };
   factory.addWords = function(){
-    //something
+    //ajax call here
   }
   return factory;
 })
@@ -28,7 +31,6 @@ var app = angular.module('yokoApp', [
   var syncObject = $firebaseObject(ref);
   // create an instance of the authentication service
   var auth = $firebaseAuth(ref);
-
   // synchronize the object with a three-way data binding
   syncObject.$bindTo($scope, "data");
 
